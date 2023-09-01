@@ -23,7 +23,7 @@ display_system_info() {
  echo "#####################################"
  echo "Network Information:"
 
- ipconfig
+ ipconfig #If ipconfig did not work for you, then you can try  ifconfig(ANYONE OUT OF THE TWO SHOULD WORK FOR YOU).
         }
 
 # Main function
