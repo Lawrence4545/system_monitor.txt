@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Function to display system information
+display_system_info() {
+ echo "System Information:"
+ echo "#####################################"
+ echo "Hostname: $(hostname)"
+ echo "#####################################"
+ echo "Kernel Version: $(uname -r)"
+ echo "#####################################"
+ echo "CPU Model: $(grep "model name" /proc/cpuinfo | uniq | cut -d ':' -f 2 | sed 's/^[ \t]*//')"
+ echo "#####################################"
+ echo "CPU Cores: $(nproc)"
+ echo "#####################################"
+ echo "Memory Total: $(free -h | awk '/Mem/{print $2}')"
+ echo "###########################"
+ echo "Memory Used: $(free -h | awk '/Mem/{print $3}')"
+ echo "#####################################"
+ echo "Memory Free: $(free -h | awk '/Mem/{print $4}')"
+ echo "#####################################"
+ echo "Disk Space Usage:"
+ df -h
+ echo "#####################################"
+ echo "Network Information:"
+
+ ipconfig
+        }
+
+# Main function
+  main() {
+          display_system_info
+
+    }
+
+main
+
